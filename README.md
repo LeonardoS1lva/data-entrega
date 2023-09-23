@@ -26,7 +26,7 @@ Este é um programa responsável por realizar o cálculo da entrega de um produt
 
 ### Links
 
-- Live Site URL: [Age Calculator App](https://leonardos1lva.github.io/data-entrega/)
+- Live Site URL: [Data de Entrega](https://leonardos1lva.github.io/data-entrega/)
 
 ## My process
 
