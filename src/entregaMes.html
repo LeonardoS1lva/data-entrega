@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datas do mês</title>
+
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/entregaMes.css">
+</head>
+
+<body>
+    <header>
+        <h1 id="titulo">Mês de </h1>
+    </header>
+    <main>
+        <table id="tabela">
+            <tr class="fundo-titulo">
+                <th>DATA SAÍDA</th>
+                <th>DATA DE ENTREGA</th>
+            </tr>
+        </table>
+        <div class="container-legenda">
+            <div class="legenda">
+                <div>
+                    <span class="cor-sexta"></span>
+                    <b>Sexta</b>
+                </div>
+                <div>
+                    <span class="cor-sabado"></span>
+                    <b>Sábado</b>
+                </div>
+            </div>
+            <div class="feriados">
+                <b>Feriados e pontos facultativos do mês:</b>
+                <div id="feriados"></div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <button id="btn-anterior">Mês anterior</button>
+        <button id="btn-proximo">Próximo mês</button>
+    </footer>
+    <script src="./js/entregaMes.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+header,
+main,
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.titulo {
+    padding: 1.5rem;
+    font-size: 5vw;
+}
+
+.data-entrega {
+    border: solid 5px black;
+    font-size: 15vw;
+    color: green;
+    padding: 2rem;
+}
+
+.info-facultativo {
+    font-size: 2vw;
+    padding: 1.5rem;
+    color: blue;
+}
+
+footer button {
+    background-color: #fff;
+    border: 2px solid black;
+    padding: 2rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    font-size: 1.5vw;
+}
+
+footer button:hover{
+    background-color: lightgrey;
+}
+
+@media (max-width: 480px) {
+    footer button {
+        font-size: 3.5vw;
+    }
+}

@@ -1,0 +1,104 @@
+header {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
+
+main {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1rem;
+}
+
+th,
+td {
+    border: 2px solid #000;
+    min-width: 20vw;
+    text-align: center;
+}
+
+table {
+    border-collapse: collapse;
+    background-color: lightgrey;
+    font-size: 18px;
+}
+
+.fundo-titulo {
+    background-color: lightcoral;
+}
+
+.container-legenda {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.feriados {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    font-size: 1.5vw;
+}
+
+.legenda {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 2px solid #000;
+    padding: 1rem;
+    gap: 2rem;
+    height: max-content;
+    align-self: center;
+    background-color: lightgray;
+}
+
+.legenda div {
+    display: flex;
+    gap: .5rem;
+}
+
+.cor-sexta,
+.cor-sabado {
+    border: 1px solid #000;
+    padding: 2px 20px;
+}
+
+.sexta,
+.cor-sexta {
+    background-color: lightyellow;
+}
+
+.sabado,
+.cor-sabado {
+    background-color: lightgreen;
+}
+
+.domingo {
+    background-color: #000;
+}
+
+footer {
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem;
+}
+
+footer button {
+    background-color: #fff;
+    border: 2px solid black;
+    padding: 1rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+footer button:hover {
+    background-color: lightgrey;
+}
+
+@media (max-width: 480px) {
+    .feriados {
+        font-size: 3.5vw;
+        padding: 1rem;
+    }
+}
