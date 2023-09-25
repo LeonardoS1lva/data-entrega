@@ -183,6 +183,7 @@ function atualizarData() {
                                 /* caso o feriado caia na quinta e tenha a possibilidade de emendar sexta*/
                             }
                         } else if (dataNaoUtil.tipo === "facultativo") {
+                            i--;
                             // if (datasFacultativas === "") {
                             //     datasFacultativas += `<b>${dataNaoUtil.nome}: ${dataNaoUtil.data}</b>`;
                             // } else {

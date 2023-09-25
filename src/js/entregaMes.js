@@ -137,6 +137,121 @@ const datasNaoUteis = [
         nome: "Carnaval",
         tipo: "facultativo"
     },
+    {
+        id: 24,
+        data: "28/10/2024",
+        nome: "Dia do Servidor Público",
+        tipo: "facultativo"
+    },
+    {
+        id: 25,
+        data: "29/03/2024",
+        nome: "Sexta-Feira Santa",
+        tipo: "feriado"
+    },
+    {
+        id: 26,
+        data: "21/04/2024",
+        nome: "Tiradentes",
+        tipo: "feriado"
+    },
+    {
+        id: 27,
+        data: "01/05/2024",
+        nome: "Dia do Trabalhador",
+        tipo: "feriado"
+    },
+    {
+        id: 28,
+        data: "07/09/2024",
+        nome: "Independência do Brasil",
+        tipo: "feriado"
+    },
+    {
+        id: 29,
+        data: "12/10/2024",
+        nome: "Nossa Senhora Aparecida",
+        tipo: "feriado"
+    },
+    {
+        id: 30,
+        data: "02/11/2024",
+        nome: "Finados",
+        tipo: "feriado"
+    },
+    {
+        id: 31,
+        data: "15/11/2024",
+        nome: "Proclamação da República",
+        tipo: "feriado"
+    },
+    {
+        id: 32,
+        data: "25/12/2024",
+        nome: "Natal",
+        tipo: "feriado"
+    },
+    {
+        id: 33,
+        data: "13/04/2024",
+        nome: "Nossa Senhora da Penha",
+        tipo: "feriado"
+    },
+    {
+        id: 34,
+        data: "30/05/2024",
+        nome: "Corpus Christi",
+        tipo: "feriado"
+    },
+    {
+        id: 35,
+        data: "24/06/2024",
+        nome: "São João Batista",
+        tipo: "feriado"
+    },
+    {
+        id: 36,
+        data: "20/11/2024",
+        nome: "Dia da Consciência Negra",
+        tipo: "feriado"
+    },
+    {
+        id: 37,
+        data: "28/03/2024",
+        nome: "Quinta-feira santa",
+        tipo: "feriado"
+    },
+    {
+        id: 38,
+        data: "31/12/2024",
+        nome: "Véspera de Ano Novo",
+        tipo: "feriado"
+    },
+    {
+        id: 39,
+        data: "01/01/2025",
+        nome: "Ano Novo",
+        tipo: "feriado"
+    },
+    {
+        id: 40,
+        data: "03/03/2025",
+        nome: "Carnaval",
+        tipo: "facultativo"
+    },
+    {
+        id: 41,
+        data: "04/03/2025",
+        nome: "Carnaval",
+        tipo: "facultativo"
+    },
+    {
+        id: 42,
+        data: "05/03/2025",
+        nome: "Carnaval",
+        tipo: "facultativo"
+    },
+
 ]
 
 const tabela = document.getElementById("tabela");
@@ -150,11 +265,11 @@ var diasUteis = 30;
 botaoMesAnterior.addEventListener("click", mostrarMesAnterior);
 botaoProximoMes.addEventListener("click", mostrarProximoMes);
 
-function imprimeFeriadosMes(mes) {
+function imprimeFeriadosMes(mes, ano) {
     textoFeriados.innerHTML = ""
 
     for (const feriado of datasNaoUteis) {
-        if (feriado.data.substring(3, 5) == mes) {
+        if (feriado.data.substring(3, 5) == mes && feriado.data.substring(6, 10) == ano) {
             textoFeriados.innerHTML += `${feriado.nome}: ${feriado.data} <br>`;
         }
     }
@@ -205,16 +320,22 @@ function nomeMes(num) {
 
 function mostrarMesAnterior() {
     const mesAtual = dataAtual.getMonth() - 1;
-    if (dataAtual.getMonth() !== 1) {
+    if (dataAtual.getFullYear() > 2023) {
         dataAtual.setMonth(mesAtual - 1); // Subtrai 1 para ir para o mês anterior
         diasUteis = 30;
         atualizarTabela();
+    } else if (dataAtual.getFullYear() == 2023){
+        if (dataAtual.getMonth() !== 1 ) {
+            dataAtual.setMonth(mesAtual - 1); // Subtrai 1 para ir para o mês anterior
+            diasUteis = 30;
+            atualizarTabela();
+        }
     }
 }
 
 function mostrarProximoMes() {
     const mesAtual = dataAtual.getMonth() - 1;
-    if (dataAtual.getMonth() !== 0) {
+    if (dataAtual.getFullYear() < 2025) {
         dataAtual.setMonth(mesAtual + 1); // Adiciona 1 para ir para o próximo mês
         diasUteis = 30;
         atualizarTabela();
@@ -248,7 +369,7 @@ function atualizarTabela() {
 
     const mesAtual = dataAtual.getMonth() + 1;
     document.getElementById("titulo").innerHTML = nomeMes(mesAtual) + " de " + dataAtual.getFullYear();
-    imprimeFeriadosMes(mesAtual);
+    imprimeFeriadosMes(mesAtual, dataAtual.getFullYear());
 
     dataAtual.setDate(1);
 
@@ -256,6 +377,7 @@ function atualizarTabela() {
 
         const dataEntrega = new Date();
 
+        dataEntrega.setFullYear(dataAtual.getFullYear());
         dataEntrega.setMonth(dataAtual.getMonth());
         dataEntrega.setDate(dataAtual.getDate());
 
@@ -284,6 +406,8 @@ function atualizarTabela() {
                                 i--;
                                 /* caso o feriado caia na quinta e tenha a possibilidade de emendar sexta*/
                             }
+                        } else if (dataNaoUtil.tipo === "facultativo") {
+                            i--;
                         }
                     }
                 }
